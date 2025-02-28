@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone Academy</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Reset */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: darkolivegreen;
+      height: 100px;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      background-color: white;
+      color: darkolivegreen;
+    }
+
+
+.fullscreen-image {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Fullscreen height */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fullscreen-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Stretch to cover */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Black transparent overlay */
+  display: flex;
+  justify-content: flex-end; /* Align content to right */
+  align-items: center;
+  padding-right: 20px; /* Right padding */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.overlay.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.text-box {
+  position: absolute;
+  bottom: 1px; /* Adjust the distance from the bottom */
+  right: 20px; /* Adjust the distance from the right */
+  background-color: rgba(255, 255, 255, 0.8); /* Light background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideInFromBottom 1.5s ease-in-out;
+  width: 700px; /* Adjust width as needed */
+  height:400px;
+}
+
+.text-box h1 {
+    font-size: 48px; /* Larger heading */
+    margin-bottom: 20px;
+    color: darkolivegreen; /* Change heading color if needed */
+text-align:center;
+}
+
+.text-box p {
+    font-size: 18px; /* Medium paragraph size */
+    color: #333; /* Darker text color */
+text-align:center;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px); /* Slide in from below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    /* About Us Section */
+    .about-section {
+      width: 100%;
+      padding: 20px 10px;
+      background-color: grey;
+      text-align: center;
+    }
+
+    .about-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-container h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      margin-top: 0;
+      color: white;
+    }
+
+    .about-container p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* head Section */
+    .head-section {
+      width: 100%;
+      padding: 40px 20px;
+      background-color: #eef2f3;
+      text-align: center;
+    }
+
+    .head-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .head-container h1 {
+  font-size: 60px;
+  color: Darkolivegreen;
+  font-family: 'Georgia', serif;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.head-container h1::before,
+.head-container h1::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Align lines vertically with the text */
+  width: 100px; /* Length of the lines */
+  height: 2px;
+  background: #333;
+}
+
+.head-container h1::before {
+  left: -120px; /* Space between the line and text */
+}
+
+.head-container h1::after {
+  right: -120px;
+}
+
+    .head-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .head-info {
+      flex: 1;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .head-info p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .head-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+
+    .head-image:hover {
+      transform: scale(1.05) rotate(2deg);
+      filter: brightness(0.9);
+    }
+
+    .head-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive Design for Small Screens */
+    @media (max-width: 768px) {
+      .head-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .head-container .coach-info {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .head-container .coach-image img {
+        width: 80%;
+      }
+    }
+
+    /* Gallery Section */
+    .Gallery-section {
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #e8f0f2, #ffffff);
+      text-align: center;
+    }
+
+    .Gallery-container .section-title {
+      font-size: 60px;
+      color: Darkolivegreen;
+      font-family: 'Georgia', serif;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+   .section-title::before,
+   .section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Align lines vertically */
+  width: 100px; /* Length of the lines */
+  height: 2px;
+  background: #333;
+}
+
+  .section-title::before {
+  left: -120px; /* Space between line and text */
+}
+
+  .section-title::after {
+  right: -120px;
+}
+
+
+    .Gallery-container .section-description {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+/* Updated Gallery Grid for Larger Images */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger minimum width */
+  gap: 25px; /* Increased spacing for larger images */
+  padding: 20px;
+  width: 100%;
+  max-width: 1400px; /* Increased max width for the grid */
+  margin: 0 auto;
+}
+
+.photo-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10; /* Wider aspect ratio for larger images */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow for a larger size */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the container without stretching */
+}
+
+.photo-item:hover {
+  transform: scale(1.07); /* Slightly more zoom on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Enhanced hover shadow */
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Slightly darker background for captions */
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 18px; /* Larger font size for captions */
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-caption {
+  opacity: 1; /* Fully show caption on hover */
+}
+
+
+/* Contact Section */
+#contact {
+  padding: 100px 20px; /* Adjust padding for space from navbar */
+  background: #f9f9f9;
+  text-align: center;
+}
+
+
+.section-title {
+    font-size: 60px;
+    color: darkolivegreen;
+    font-family: 'Georgia', serif;
+    position: relative;
+    display: inline-block;
+    text-align:center;
+    margin-bottom: 30px;
+   margin-top:0px;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 80px; /* Adjust for responsive design */
+    height: 2px;
+    background: #333;
+}
+
+.section-title::before {
+    left: -100px; /* Adjust space for smaller screens */
+}
+
+.section-title::after {
+    right: -100px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap; /* Wrap elements on smaller screens */
+  gap: 20px; /* Spacing between the sections */
+  justify-content: center; /* Center content horizontally */
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  justify-content: center; /* Center content horizontally */
+  gap: 20px; /* Adds space between the two containers */
+  max-width: 1300px; /* Limits the width of the section */
+  margin: 0 auto; /* Centers the entire section */
+  height:400px;
+}
+
+.contact-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.contact-menu h3 {
+  margin-bottom: 20px;
+ color:Darkolivegreen;
+
+}
+
+.contact-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Display flex for the whole list */
+  flex-wrap: wrap; /* Allow wrapping if the screen width is small */
+
+}
+
+.contact-menu ul li {
+  margin-right: 20px; /* Space between the icons and text */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+
+}
+
+.contact-menu ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: darkolivegreen;
+
+}
+
+.contact-menu ul li a i {
+  margin-right: 10px;
+  font-size: 25px;
+
+}
+
+
+.contact-info,
+.map-container {
+  flex: 1; /* Both take equal width */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px; /* Limit the max width for better alignment */
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Align items properly */
+}
+
+.contact-info li {
+  margin: 10px 0; /* Add uniform spacing between items */
+  font-size: 18px;
+  display: flex;
+  align-items: center; /* Align icons and text properly */
+  gap: 10px; /* Add space between icon and text */
+}
+.contact-info h2 {
+color: darkolivegreen;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: darkolivegreen;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #2a5934; /* Slightly darker shade on hover */
+}
+
+.contact-info a i {
+  font-size: 20px; /* Icon size */
+  color: darkolivegreen; /* Optional: Customize icon color */
+}
+
+
+.map-container iframe {
+  width: 100%;
+  height: 400px; /* Adjust map height */
+  border: none;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+
+  .map-container iframe {
+    height: 300px; /* Smaller map height for small screens */
+  }
+
+html {
+  scroll-behavior: smooth;
+}
+
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone academy</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Drone Academy</div>
+      <ul class="nav-links">
+        <li><a href="drone.html" class="active">Home</a></li>
+        <li><a href="about.html" >About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="success.html">Success</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="fullscreen-image">
+  <img src="images/f13.jpg" alt="Drone Academy" class="background-image">
+  <div class="overlay active">
+    <div class="text-box">
+      <h1>Drone Academy</h1>
+      <p>Drone Academy is a premier institution committed to training individuals in cutting-edge drone technology, offering a wide range of programs for enthusiasts and professionals alike.<br>
+      Mission is to inspire innovation and excellence in the field of unmanned aerial systems while contributing to technological advancements and societal benefits.</p>
+    </div>
+  </div>
+</section>
+</div>
+</section>
+
+    <!-- About Us Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <h1>About Us</h1>
+      <p>
+        Drone Academy is a premier institution committed to training individuals in cutting-edge drone technology, offering a wide range of programs for enthusiasts and professionals alike.
+      </p>
+      <p>
+        Our mission is to inspire innovation and excellence in the field of unmanned aerial systems while contributing to technological advancements and societal benefits.
+      </p>
+
+<p>
+        Our mission is to inspire innovation and excellence in the field of unmanned aerial systems while contributing to technological advancements and societal benefits.
+      </p>
+    </div>
+  </section>
+
+
+<section class="head-section">
+  <div class="head-container">
+    <h1>Our Head</h1> <!-- Heading at the top center -->
+
+    <div class="head-content">
+      <div class="head-info">
+ <h2>Mr.Prakash Sole (E.x. B.S.F commando)</h2>
+        <p>
+          Meet Prakash Bandu sole, a seasoned drone technology expert with over 25 years of experience in BSF. His expertise and dedication have inspired countless students to achieve excellence in the field of drone Academy.
+        </p>
+      </div>
+      <div class="head-image">
+        <img src="images/a6.jpg" alt="head Image">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Gallery Section -->
+<section id="Gallery" class="Gallery-section">
+  <div class="Gallery-container">
+    <h1 class="section-title">Gallery</h1>
+    <p class="section-description">
+"Prakash Sole, a dedicated commando with BSF, exemplified courage and discipline during his service. His old photos capture moments of valor and commitment, serving as a testament to his unwavering dedication to duty."    </p>
+    <div class="photo-grid">
+      <div class="photo-item">
+        <img src="images/f1.jpg" alt="Modern Skyscraper">
+      </div>
+      <div class="photo-item">
+        <img src="images/f2.jpg" alt="Elegant Interior Design">
+      </div>
+      <div class="photo-item">
+        <img src="images/f11.jpg" alt="Classic Architectural Detail">
+      </div>
+      <div class="photo-item">
+        <img src="images/f4.jpg" alt="Sustainable Architecture">
+      </div>
+      <div class="photo-item">
+        <img src="images/f8.jpg" alt="Futuristic Building">
+      </div>
+      <div class="photo-item">
+        <img src="images/p13.jpg" alt="Futuristic Building">
+      </div>
+<div class="photo-item">
+        <img src="images/p10.jpg" alt="Futuristic Building">
+      </div>
+
+<div class="photo-item">
+        <img src="images/f14.jpg" alt="Classic Architectural Detail">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Here!</h2>
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Connect With Us</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="tel:+9572333815">
+            <i class="fas fa-phone"></i> +9572333815
+          </a>
+        </li>
+        <li>
+          <a href="mailto:soleankita876@gmail.com">
+            <i class="fas fa-envelope"></i> soleankita876@gmail.com
+          </a>
+        </li>
+      </ul>
+      <!-- Menu Below Email -->
+      <div class="contact-menu">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="drone.html"><i class="fas fa-home"></i></a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i></a></li>
+          <li><a href="success.html"><i class="fas fa-trophy"></i></a></li>
+          <li><a href="programs.html"><i class="fas fa-book"></i></a></li>
+          <li><a href="location.html"><i class="fas fa-map-marker-alt"></i></a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15333.782674288073!2d74.25175519142701!3d16.094230370254806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc087ad750a7071%3A0x866c11c270db8e09!2sYamekond%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1734080831207!5m2!1sen!2sin" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+</html>
+</body>
+</html>
