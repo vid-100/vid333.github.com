@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>success</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkolivegreen;
+  height: 100px; /* Increased height to match Programs style */
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 36px; /* Increased font size to match Programs */
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px; /* Match font size with Programs nav */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  background-color: white;
+  color: darkolivegreen;
+}
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+    /* Header Section */
+   .header {
+      margin-top: 100px; /* Adjusts for fixed navbar height */
+      background-color: #ffffff;
+      color: #333;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 48px;
+      color: #121212;
+    }
+
+    .header p {
+      margin: 10px 0 0;
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* Success Section */
+    .success-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .success-title {
+      font-size: 36px;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      color: #333;
+      position: relative;
+      display: inline-block;
+    }
+
+    .success-title::before,
+    .success-title::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 100px;
+      height: 2px;
+      background: #333;
+    }
+
+    .success-title::before {
+      left: -120px;
+    }
+
+    .success-title::after {
+      right: -120px;
+    }
+
+    .success-list {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .success-list h2 {
+      font-size: 24px;
+      color: #121212;
+      margin-bottom: 15px;
+    }
+
+    .student {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .student:last-child {
+      border-bottom: none;
+    }
+
+    .student-name {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .student-position {
+      font-size: 16px;
+      color: #666;
+    }
+
+/* Contact here Section */
+#contact {
+  padding: 120px 20px 50px; /* Adjust padding for space from navbar */
+  background: #f9f9f9;
+  text-align: center;
+  
+}
+
+.section-title {
+    font-size: 60px;
+    color: darkolivegreen;
+    font-family: 'Georgia', serif;
+    position: relative;
+    display: inline-block;
+    text-align:center;
+    margin-bottom: 30px;
+   margin-top:0px;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 80px; /* Adjust for responsive design */
+    height: 2px;
+    background: #333;
+}
+
+.section-title::before {
+    left: -100px; /* Adjust space for smaller screens */
+}
+
+.section-title::after {
+    right: -100px;
+}
+
+.contact-container {
+  display: flex; /* Makes the child containers sit side by side */
+  gap: 20px; /* Adds space between the containers */
+  justify-content: space-between; /* Ensures even spacing */
+  align-items: stretch; /* Aligns both containers vertically */
+  margin-top: 30px; /* Adds space above the containers */
+}
+
+.contact-info,
+.map-container {
+  flex: 1; /* Both containers take equal space */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Ensures the content inside is stacked vertically */
+  text-align: center;
+}
+
+.contact-info,
+.map-container {
+  flex: 1; /* Both take equal width */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Keeps content stacked vertically */
+  text-align:center;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.contact-info a { 
+  text-decoration: none;
+  color: darkolivegreen;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info h2 {
+  color: darkolivegreen; /* Sets the text color */
+  font-size: 24px; /* Adjust the font size as desired */
+  font-weight: bold; /* Makes it stand out */
+  margin-bottom: 20px; /* Adds spacing below the heading */
+}
+
+
+.contact-info a i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.map-container iframe {
+  width: 100%; /* Ensures the map fills the container */
+  height: 100%; /* Makes the map responsive */
+  min-height: 450px; /* Sets a minimum height for consistency */
+  border: none;
+  border-radius: 10px;
+}
+
+.contact-container > * {
+  height: 100%; /* Ensures both containers have the same height */
+  min-height: 450px; /* Adjust the height as needed */
+  margin-top:20px;
+}
+
+.contact-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.contact-menu h3 {
+  margin-bottom: 20px;
+ color:Darkolivegreen;
+
+}
+
+.contact-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Display flex for the whole list */
+  flex-wrap: wrap; /* Allow wrapping if the screen width is small */
+
+}
+
+.contact-menu ul li {
+  margin-right: 20px; /* Space between the icons and text */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+
+}
+
+.contact-menu ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: darkolivegreen;
+
+}
+
+.contact-menu ul li a i {
+  margin-right: 10px;
+  font-size: 18px;
+
+}
+
+.contact-info,
+.map-container {
+  flex: 1; /* Both take equal width */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Keeps content stacked vertically */
+  text-align:center;
+}
+
+
+@media (max-width: 768px) {
+  .map-container iframe {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header h2 {
+    font-size: 36px;
+  }
+  .nav-links a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone academy</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+ <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+
+<div class="hamburger" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+      <div class="logo">Drone Academy</div>
+      <ul class="nav-links">
+        <li><a href="drone.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="success.html"class="active">Success</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Header Section -->
+  <header class="header">
+    <h2>Success Stories</h2>
+    <p>Meet the stars of Drone Academy who excelled in their fields.</p>
+  </header>
+
+  <!-- Success Section -->
+  <section class="success-section">
+    <h1 class="success-title">Our Achievers</h1>
+    <div class="success-list">
+      <h2>Top Performers</h2>
+      <div class="student">
+        <span class="student-name">Sharad Pawar</span>
+        <span class="student-position">Police Sub Inspector</span>
+      </div>
+      <div class="student">
+        <span class="student-name">Vikram Dawar</span>
+        <span class="student-position">Indian Air Force (IAF)</span>
+      </div>
+      <div class="student">
+        <span class="student-name">Pandurang Balekundri</span>
+        <span class="student-position">Indian Army</span>
+      </div>
+      <div class="student">
+        <span class="student-name">Smita Patil</span>
+        <span class="student-position">Central Reserve Police Force (CRPF)</span>
+      </div>
+      <div class="student">
+        <span class="student-name">Sudhika Patil</span>
+        <span class="student-position">Border Security Force (BSF)</span>
+      </div>
+<div class="student">
+        <span class="student-name">Rohan Jadhav</span>
+        <span class="student-position">Indian Army</span>
+      </div>
+<div class="student">
+        <span class="student-name">Abhijeet Patil</span>
+        <span class="student-position">Indian Army</span>
+      </div>
+<div class="student">
+        <span class="student-name">Vishal Sasulkar</span>
+        <span class="student-position">Border Security Force (BSF)</span>
+      </div>
+<div class="student">
+        <span class="student-name">Prajwal Gaikwad</span>
+        <span class="student-position">Border Security Force (BSF)</span>
+      </div>
+<div class="student">
+        <span class="student-name">Jaideep Kharude</span>
+        <span class="student-position">Mumbai Fire Brigade</span>
+      </div>
+<div class="student">
+        <span class="student-name">Mahadev tuppat</span>
+        <span class="student-position">Indian Air Force (IAF)</span>
+      </div>
+<div class="student">
+        <span class="student-name">Sayali Patil</span>
+        <span class="student-position">Service Selection Board (SSB)</span>
+      </div>
+<div class="student">
+        <span class="student-name">Shivani Pasare</span>
+        <span class="student-position">Border Security Force (BSF) <strong>[Best of endurance award]</strong></span>
+      </div>
+<div class="student">
+        <span class="student-name">Shukrani Pasare</span>
+        <span class="student-position">Border Security Force (BSF) <strong>[Best of endurance award]</strong></span>
+      </div>
+
+<div class="student">
+        <span class="student-name">Sanmesh Kurunkar</span>
+        <span class="student-position">F.A.D (Field Ammunition Depot</span>
+      </div>
+
+    </div>
+  </section>
+
+ <!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Here!</h2>
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Connect With Us</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="tel:+9572333815">
+            <i class="fas fa-phone"></i> +9572333815/+9623611854/+9545339424
+
+          </a>
+        </li>
+        <li>
+          <a href="mailto:soleankita876@gmail.com">
+            <i class="fas fa-envelope"></i> soleankita876@gmail.com
+          </a>
+        </li>
+      </ul>
+<!-- Menu Below Email -->
+<div class="contact-menu">
+  <h3>Menu</h3>
+  <ul>
+    <li><a href="drone.html"><i class="fas fa-home"></i></a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i></a></li>
+    <li><a href="success.html"><i class="fas fa-trophy"></i></a></li>
+    <li><a href="programs.html"><i class="fas fa-book"></i></a></li>
+    <li><a href="location.html"><i class="fas fa-map-marker-alt"></i></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i></a></li>
+  </ul>
+</div>
+
+    </div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15333.782674288073!2d74.25175519142701!3d16.094230370254806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc087ad750a7071%3A0x866c11c270db8e09!2sYamekond%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1734080831207!5m2!1sen!2sin" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+    </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
