@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkolivegreen;
+  height: 100px; /* Increased height to match Programs style */
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 36px; /* Increased font size to match Programs */
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px; /* Match font size with Programs nav */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  background-color: white;
+  color: darkolivegreen;
+}
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+.programs-section {
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #e8f0f2, #ffffff); /* Gradient background for elegance */
+  text-align: center;
+}
+
+.programs-container .section-title {
+  font-size: 60px;
+  color: Darkolivegreen;
+  font-family: 'Georgia', serif; /* Adds a sophisticated font style */
+  position: relative;
+  display: inline-block; /* Makes the title inline with the pseudo-elements */
+  margin-bottom: 30px;
+}
+
+.programs-container .section-title::before,
+.programs-container .section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Vertically align with the text */
+  width: 100px; /* Adjust length of the lines */
+  height: 2px;
+  background: #333; /* Line color */
+}
+
+.programs-container .section-title::before {
+  left: -120px; /* Spacing between line and text */
+}
+
+.programs-container .section-title::after {
+  right: -120px;
+}
+
+.programs-container .section-description {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Programs Section */
+.programs-section {
+  padding-top: 120px; /* Adjust based on the navbar height */
+  background-color: #f9f9f9;
+}
+
+/* Add spacing between program items */
+.program-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between each program-item */
+  margin: 0 auto; /* Center the content */
+  max-width: 1200px; /* Optional: Limit the width of the container */
+}
+
+.program-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  margin-bottom: 20px; /* Add space below each item */
+  padding: 20px; /* Optional: Add padding inside each item for better separation */
+  background-color: #fdfdfd; /* Optional: Slight background for differentiation */
+  border-radius: 8px; /* Rounded corners for visual appeal */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.program-item:hover {
+  transform: scale(1.0); /* Zoom effect on hover */
+}
+
+.program-item img {
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.program-item:hover img {
+  transform: scale(1.1); /* Zoom image on hover */
+}
+
+.program-info {
+  flex: 1;
+  text-align: left;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.program-item:hover .program-info {
+  transform: scale(1.05); /* Zoom info on hover */
+}
+
+.program-info h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: darkolivegreen;
+}
+
+.program-info p {
+    max-height: 150px; /* Set a fixed height for content */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .program-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .program-item img {
+    width: 100%;
+  }
+
+  .program-info {
+    text-align: center;
+  }
+}
+
+
+
+/* Contact here Section */
+#contact {
+  padding: 120px 20px 50px; /* Adjust padding for space from navbar */
+  background: #f9f9f9;
+  text-align: center;
+  
+}
+
+.section-title {
+    font-size: 60px;
+    color: darkolivegreen;
+    font-family: 'Georgia', serif;
+    position: relative;
+    display: inline-block;
+    text-align:center;
+    margin-bottom: 30px;
+   margin-top:0px;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 80px; /* Adjust for responsive design */
+    height: 2px;
+    background: #333;
+}
+
+.section-title::before {
+    left: -100px; /* Adjust space for smaller screens */
+}
+
+.section-title::after {
+    right: -100px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  justify-content: center; /* Center content horizontally */
+  gap: 20px; /* Adds space between the two containers */
+  max-width: 1300px; /* Limits the width of the section */
+  margin: 0 auto; /* Centers the entire section */
+  height:400px;
+}
+
+.contact-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.contact-menu h3 {
+  margin-bottom: 20px;
+ color:Darkolivegreen;
+
+}
+
+.contact-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Display flex for the whole list */
+  flex-wrap: wrap; /* Allow wrapping if the screen width is small */
+
+}
+
+.contact-menu ul li {
+  margin-right: 20px; /* Space between the icons and text */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+
+}
+
+.contact-menu ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: darkolivegreen;
+
+}
+
+.contact-menu ul li a i {
+  margin-right: 10px;
+  font-size: 25px;
+
+}
+
+
+.contact-container > * {
+  flex: 1; /* Both containers take equal width */
+  min-width: 300px; /* Ensures minimum width for smaller screens */
+}
+
+.contact-info,
+.map-container {
+  flex: 1 1 45%;
+  min-width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box; /* Ensures proper padding adjustment */
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: darkolivegreen;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info a i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.contact-info h2 {
+  color: darkolivegreen;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: none;
+  border-radius: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+  .map-container iframe {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container iframe {
+    width: 100%; /* Full width on smaller screens */
+    height: 200px; /* Adjusted height */
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+<div class="hamburger" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+      <div class="logo">Drone Academy</div>
+      <ul class="nav-links">
+        <li><a href="drone.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html" class="active">Programs</a></li>
+        <li><a href="success.html">Success</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   <!--programs Section -->
+<section id="programs" class="programs-section">
+  <div class="programs-container">
+    <h1 class="section-title">Our Programs</h1>
+
+    <p>
+      At Drone Academy, we provide specialized training programs designed to enhance your skills, discipline, and leadership. 
+      Our mission is to prepare you for challenges with top-notch military and technical training. 
+      Whether it's mastering the art of precision, endurance, or modern defense strategies, we are here to help you achieve your goals.
+    </p>
+    <p>
+      Join us to explore a transformative journey that instills courage, excellence, and commitment, enabling you to soar to new heights.
+    </p>
+ <br><br>
+      <!-- Program Item -->
+      <div class="program-item">
+        <img src="images/c1.jpg" alt="Army Program">
+        <div class="program-info">
+          <h2>Army</h2>
+          <p>Army training can include basic military training, leadership training, and advanced military training:
+Basic military training
+This training includes physical training, drill, weapon training, fieldcraft, and tactics. The goal is to develop discipline, physical fitness, and basic military skills.
+Leadership training
+This training includes leadership camps, outdoor exercises, and war games. The goal is to develop leadership qualities and decision-making abilities.
+Advanced military training
+This training includes specialized training and combat training. The goal is to prepare officers for specific roles within the army. </p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <img src="images/c2.jpg" alt="Navy Program">
+        <div class="program-info">
+          <h2>Navy</h2>
+          <p>Initial training: Cadets undergo initial training at the Indian Naval Academy (INA) for four years and 22 weeks, respectively. 
+Officer training: Training for officers in the Indian Navy varies depending on the entry scheme: 
+National Defence Academy (NDA) Entry: Four years of training, including three years at NDA, Pune, and one year at INA, Ezhimala 
+10+2 B.Tech Cadet Entry Scheme: Four years of training, including one year at INA, Ezhimala, and three years at a technical institution 
+Direct Entry Graduate Cadets: Nine months to one year at INA, Ezhimala 
+Short Service Commission (SSC) Officers: Nine months at INA, Ezhimala .</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <img src="images/c3.jpg" alt="Air Force Program">
+        <div class="program-info">
+          <h2>Air Force</h2>
+          <p>The Indian Air Force (IAF) offers a variety of military training programs, including: 
+Air Force Academy (AFA): 
+Stage-I training: Six months of joint training for trainees in Flying, Technical, and Non-Technical ground duty branches 
+Stage-II training: 24 weeks of training for pilot trainees in their respective Flying Training Establishments 
+Stage-III training: For successful pilot trainees who are commissioned as Officers 
+Training for Non-Technical Ground Duty branches: Trainees continue their Stage-II training at the Academy for another 24 weeks 
+Training for Administration (Air Traffic Control): Trainees continue at AFA for another 24 weeks of specialized training 
+Training for Administration (Fighter Controller): Trainees proceed to Air Defence College at Memaura for 24 weeks of specialized training 
+Training for Meteorology branch: Trainees proceed to Air Force Administrative College for 16 weeks of training .</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <img src="images/c4.jpg" alt="BSF Program">
+        <div class="program-info">
+          <h2>BSF</h2>
+          <p>Basic training for a BSF jawan is 52 weeks, followed by several years of on-the-job training.
+BSF training includes physical fitness, tactical drills, simulations, and classroom instruction. Physical fitness is a key focus, with recruits undergoing intensive physical exercises and endurance training. Classroom instruction covers topics such as law enforcement, human rights, border management, and first aid.</p>
+        </div>
+      </div>
+
+
+  <div class="program-item">
+        <img src="images/c5.jpg" alt="BSF Program">
+        <div class="program-info">
+          <h2>CRPF</h2>
+   <ul class=programs-item>
+<p>The Central Reserve Police Force (CRPF) is a paramilitary force of the Union of India that performs a range of law enforcement and internal security duties: 
+Established in 1939 as the Crown Representative's Police, the CRPF was renamed in 1949. 
+Role
+The CRPF's duties include:
+<li>Maintaining law and order </li>
+<li>Counter-insurgency operations </li>
+<li>Anti-Naxal operations </li>
+<li>Crowd control </li>
+<li>Riot control </li>
+<li>VIP protection </li>
+<li>Environmental conservation </li>
+<li>Rescue and relief operations</li> </p><ul>
+        </div>
+      </div>
+
+
+
+      <div class="program-item">
+        <img src="images/c6.jpg" alt="BSF Program">
+        <div class="program-info">
+          <h2>ITBP</h2>
+          <p>The Indo-Tibetan Border Police (ITBP) Force was raised on 24 October, 1962. At present, the ITBP guards 3,488 km long India-China borders ranging from the Karakoram Pass in Ladakh to Jachep La in Arunachal Pradesh.
+The Indo Tibetan Border Police (ITBP) offers a variety of training programs to prepare its personnel for the demanding tasks of guarding the Himalayan borders: 
+Basic Training
+A 44-week program that includes physical training, unarmed combat, drill, weapon training, map reading, and more. The goal is to develop soldiers with the required physical fitness, soldierly skills, and team spirit. </p>
+        </div>
+      </div>
+
+
+
+<div class="program-item">
+        <img src="images/c7.jpg" alt="BSF Program">
+        <div class="program-info">
+          <h2>RAILWAY</h2>
+          <p>Training for RPF personnel
+The RPF Zonal Training Centre in Tiruchchirappalli offers training for constable recruits, including an 8-month initial training program, an 8-week orientation course, and a 4-week refresher course. The center also offers capsule courses on a variety of topics, including soft skills, ethics, behavioral skills, and disaster management. 
+Training for RPF officers
+The RPF Training Centre in Subedarganj, Prayagraj, Uttar Pradesh has a training capacity of 100 trainees. 
+Training for cadets at the National Defence Academy
+The Army Training Team at the National Defence Academy trains cadets in basic soldiering skills, including weapon training, map reading, radio telephony, and field engineering.  </p>
+        </div>
+      </div>
+
+
+<div class="program-item">
+        <img src="images/c8.jpg" alt="BSF Program">
+        <div class="program-info">
+          <h2>POLICE</h2>
+          <p>The Indian Police Service (abbr. IPS) is a civil service under the All India Services. It replaced the Indian Imperial Police in 1948, a year after India became independent from the British Empire.
+The training for Indian Police Service (IPS) officers is a two-year program that includes four phases:
+Foundation Course: This three-month course is held at the LBSNAA in Mussoorie and is shared by all new UPSC CSE recruits.
+Basic Course: This 11-month phase is held at the Sardar Vallabhbhai Patel National Police Academy (SVPNPA) in Hyderabad. The course's goal is to prepare probationers for the challenges they'll face in the field.
+District Practical Training: This six-month phase takes place at the respective cadre.
+Phase II: This one-month phase is held at the SVPNPA in Hyderabad.  
+During their training, IPS officers receive a salary of Rs 15,600–Rs 39,100
+
+  </p>
+        </div>
+      </div>
+
+      <!-- Add more programs as needed -->
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Here!</h2>
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Connect With Us</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="tel:+9572333815">
+            <i class="fas fa-phone"></i> +9572333815/+9623611854/+9545339424
+
+          </a>
+        </li>
+        <li>
+          <a href="mailto:soleankita876@gmail.com">
+            <i class="fas fa-envelope"></i> soleankita876@gmail.com
+          </a>
+        </li>
+      </ul>
+<!-- Menu Below Email -->
+<div class="contact-menu">
+  <h3>Menu</h3>
+  <ul>
+    <li><a href="drone.html"><i class="fas fa-home"></i></a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i></a></li>
+    <li><a href="success.html"><i class="fas fa-trophy"></i></a></li>
+    <li><a href="programs.html"><i class="fas fa-book"></i></a></li>
+    <li><a href="location.html"><i class="fas fa-map-marker-alt"></i></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i></a></li>
+  </ul>
+</div>
+
+    </div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15333.782674288073!2d74.25175519142701!3d16.094230370254806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc087ad750a7071%3A0x866c11c270db8e09!2sYamekond%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1734080831207!5m2!1sen!2sin" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
