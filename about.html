@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkolivegreen;
+  height: 100px; /* Increased height to match Programs style */
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 36px; /* Increased font size to match Programs */
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px; /* Match font size with Programs nav */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  background-color: white;
+  color: darkolivegreen;
+}
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+
+/* About Us Section */
+#about {
+  padding: 120px 20px 50px; /* Adjust padding for space from navbar */
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 60px; /* Same as Programs heading size */
+  color: #333;
+  font-family: 'Georgia', serif; /* Match Programs style */
+  position: relative;
+  display: inline-block; /* Ensures pseudo-elements are positioned properly */
+  margin-bottom: 30px;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Align lines vertically */
+  width: 100px; /* Length of the lines */
+  height: 2px;
+  background: #333;
+}
+
+.section-title::before {
+  left: -120px; /* Space between line and text */
+}
+
+.section-title::after {
+  right: -120px;
+}
+
+/* Container for Info */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  background: #B2D3C2;
+  padding: 30px;
+  border-radius: 9px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container p {
+  margin-bottom: 30px;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.video-container {
+  margin-top: 40px;
+  text-align: center;
+  background-color: #f9f9f9; /* Optional: Light background for contrast */
+  padding: 20px;
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+}
+
+.video-container h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: 'Georgia', serif;
+}
+
+@media (max-width: 768px) {
+  .video-container video {
+    width: 100%; /* Full width on small screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+.youtube-container {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 40px; /* Optional: Adds spacing */
+}
+
+.youtube-icon {
+  font-size: 200px; /* Medium icon size */
+  color: #ff0000;
+  margin-bottom: 20px;
+}
+
+.youtube-text {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.youtube-link {
+  display: block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #ff0000; /* YouTube red background */
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.youtube-link:hover {
+  background-color: #ff5757; /* Darker red on hover */
+}
+
+.youtube-link i {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+/* Photo Gallery Section */
+.photo-gallery {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px; /* Add margin for separation */
+}
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Space between photos */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.photo-gallery::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.photo-item {
+  position: relative;
+  width: calc(33.333% - 60px); /* 3 photos per row layout */
+  max-width: calc(33.333% - 60px);
+  overflow: hidden; /* Ensures captions stay within the photo boundary */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.photo-img {
+  width: 100%;
+  height: 400px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo-wrapper {
+  position: relative;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateY(100%); /* Slide-in effect */
+}
+
+/* Hover Effects */
+.photo-item:hover .photo-img {
+  transform: scale(1.1); /* Zoom in the image slightly */
+}
+
+.photo-item:hover .photo-caption {
+  opacity: 1; /* Make the caption visible */
+  transform: translateY(0); /* Slide caption into view */
+}
+
+
+@media (max-width: 768px) {
+  .photo-item {
+    width: 100%; /* Photos take full width on smaller screens */
+    margin-bottom: 20px; /* Add spacing between stacked photos */
+  }
+}
+
+/* Contact here Section */
+#contact {
+  padding: 90px 20px 50px; /* Adjust padding for space from navbar */
+  background: #f9f9f9;
+  text-align: center;
+  width:100%;
+}
+
+.section-title {
+    font-size: 60px;
+    color: darkolivegreen;
+    font-family: 'Georgia', serif;
+    position: relative;
+    display: inline-block;
+    text-align:center;
+    margin-bottom: 30px;
+   margin-top:0px;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 80px; /* Adjust for responsive design */
+    height: 2px;
+    background: #333;
+}
+
+.section-title::before {
+    left: -100px; /* Adjust space for smaller screens */
+}
+
+.section-title::after {
+    right: -100px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1600px; /* Increased width */
+  width: 90%; /* Ensure it scales with the viewport */
+  margin: 0 auto;
+  height: 400px;
+}
+
+.contact-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.contact-menu h3 {
+  margin-bottom: 20px;
+ color:Darkolivegreen;
+
+}
+
+.contact-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Display flex for the whole list */
+  flex-wrap: wrap; /* Allow wrapping if the screen width is small */
+
+}
+
+.contact-menu ul li {
+  margin-right: 20px; /* Space between the icons and text */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+
+}
+
+.contact-menu ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: darkolivegreen;
+
+}
+
+.contact-menu ul li a i {
+  margin-right: 10px;
+  font-size: 25px;
+
+}
+
+
+.contact-info,
+.map-container {
+  flex: 1; /* Both take equal space */
+  min-width: 400px; /* Prevents too-small elements */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: darkolivegreen;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info a i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.contact-info h2 {
+  color: darkolivegreen;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 350px; /* Adjust map height */
+  border: none;
+  border-radius: 10px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack on small screens */
+    align-items: center;
+  }
+
+  .contact-info,
+  .map-container {
+    width: 100%; /* Take full width */
+  }
+
+  .map-container iframe {
+    min-height: 300px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background-color: darkolivegreen;
+    position: absolute;
+    top: 100px; /* Adjust for navbar height */
+    left: 0;
+    width: 100%;
+    display: none; /* Hidden by default */
+  }
+  .nav-links.active {
+    display: flex; /* Shown when active */
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-item {
+    width: calc(50% - 20px); /* Two photos per row */
+  }
+}
+@media (max-width: 480px) {
+  .photo-item {
+    width: 100%; /* Single photo per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 40px; /* Adjust as needed */
+  }
+  .container p {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info,
+  .map-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .map-container iframe {
+    min-height: 300px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .map-container iframe {
+    min-height: 300px;
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+<div class="hamburger" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+      <div class="logo">Drone Academy</div>
+      <ul class="nav-links">
+        <li><a href="drone.html">Home</a></li>
+        <li><a href="about.html"class="active">About Us</a></li>
+        <li><a href="programs.html" >Programs</a></li>
+        <li><a href="success.html">Success</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Us -->
+  <section id="about">
+    <div class="section-title">About Us</div>
+    <div class="container">
+        <p>
+          Established on <strong>30th August 2018</strong>, Drone Academy is located near Nesari Road, Yamekond, Taluka Ajara, District Kolhapur. 
+          Our academy is dedicated to building strong, disciplined individuals prepared to serve with pride. 
+          With a focus on innovation and excellence, we inspire our cadets to overcome challenges and achieve greatness.
+        </p>
+        <p>
+          At Drone Academy, our mission is to provide comprehensive military training while instilling values of integrity, courage, and leadership. 
+          Each cadet becomes a part of a legacy rooted in patriotism and resilience. Together, we aim to set new standards of excellence in defense training.
+        </p>
+          </div>
+  </section>
+
+  <!-- Video Section -->
+  <div class="video-container">
+    <h2>Explore Drone Academy</h2>
+    <video width="100%" height="500" controls>
+      <source src="videos/v1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- YouTube Section -->
+  <div class="youtube-container">
+    <i class="fab fa-youtube youtube-icon"></i>
+    <h2 class="youtube-text">Watch More on Our YouTube Channel</h2>
+  <a href="https://youtube.com/@prakashsolecommando1472?si=Hpq8zUWA1wCvHyTn" target="_blank" class="youtube-link">
+      <i class="fab fa-youtube"></i> Visit Our YouTube
+    </a>
+  </div>
+
+
+
+<!-- Photo Gallery Section -->
+<div class="photo-gallery">
+  <h2 class="section-title">Our Architectural Elegance</h2>
+  <div class="photo-container">
+    <div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p18.jpg" alt="Drone Academy Building" class="photo-img">
+        <div class="photo-caption">Ajara nesari road</div>
+      </div>
+    </div>
+    <div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p2.jpg" alt="Drone Training Session" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+    <div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p3.jpg" alt="Cadets in Formation" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+    <div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p4.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p5.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p6.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Board of Directors</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p14.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Kitchen</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p15.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Hostel</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p16.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Hostel</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p17.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Hostel</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p1.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Main Office</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p19.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Classroom</div>
+      </div>
+    </div>
+
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p20.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p21.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+<div class="photo-item">
+      <div class="photo-wrapper">
+        <img src="images/p22.jpg" alt="Drone Flight Training" class="photo-img">
+        <div class="photo-caption">Training ground at Drone Academy</div>
+      </div>
+    </div>
+
+<!-- Clearfix to prevent overlap -->
+<div style="clear: both;"></div>
+
+  <!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Here!</h2>
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Connect With Us</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/" target="_blank">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="tel:+9572333815">
+            <i class="fas fa-phone"></i> +9572333815/+9623611854/+9545339424
+
+          </a>
+        </li>
+        <li>
+          <a href="mailto:soleankita876@gmail.com">
+            <i class="fas fa-envelope"></i> soleankita876@gmail.com
+          </a>
+        </li>
+      </ul>
+<!-- Menu Below Email -->
+<div class="contact-menu">
+  <h3>Menu</h3>
+  <ul>
+    <li><a href="drone.html"><i class="fas fa-home"></i></a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i></a></li>
+    <li><a href="success.html"><i class="fas fa-trophy"></i></a></li>
+    <li><a href="programs.html"><i class="fas fa-book"></i></a></li>
+    <li><a href="location.html"><i class="fas fa-map-marker-alt"></i></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i></a></li>
+  </ul>
+</div>
+
+    </div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15333.782674288073!2d74.25175519142701!3d16.094230370254806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc087ad750a7071%3A0x866c11c270db8e09!2sYamekond%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1734080831207!5m2!1sen!2sin" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
